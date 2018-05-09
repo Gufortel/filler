@@ -6,7 +6,7 @@
 /*   By: gufortel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/07 19:59:07 by gufortel          #+#    #+#             */
-/*   Updated: 2018/04/20 13:54:30 by lmoreaux         ###   ########.fr       */
+/*   Updated: 2018/05/09 22:04:44 by gufortel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,13 @@
 # define LIBFT_H
 
 # include <stdlib.h>
-# include "ft_errno.h"
-# include "ft_printf.h"
 # include <unistd.h>
 # include <string.h>
+# include <stdarg.h>
+# include <stdio.h>
+# include "./get_next_line.h"
+# include "ft_errno.h"
+# include "ft_printf.h"
 
 typedef struct	s_list
 {

@@ -6,7 +6,7 @@
 #    By: gufortel <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/10 00:01:50 by gufortel          #+#    #+#              #
-#    Updated: 2018/03/30 18:36:57 by gufortel         ###   ########.fr        #
+#    Updated: 2018/05/09 18:22:14 by gufortel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -105,6 +105,7 @@ SRC = ft_atoi.c\
 	  ft_len_wchar_to_char.c\
 	  ft_val_wchar.c\
 	  ft_strupper.c\
+	  get_next_line.c\
 
 OBJ = $(SRC:.c=.o)
 
