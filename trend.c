@@ -1,61 +1,66 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   recupnext.c                                        :+:      :+:    :+:   */
+/*   trend.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gufortel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/05/09 22:12:35 by gufortel          #+#    #+#             */
-/*   Updated: 2018/05/10 17:28:33 by gufortel         ###   ########.fr       */
+/*   Created: 2018/05/11 15:53:57 by gufortel          #+#    #+#             */
+/*   Updated: 2018/05/11 16:51:00 by gufortel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./includes/unpointh.h"
 
-void		recupmapnext(t_trucs **ptr)
+void	trend_y(t_trucs **ptr)
 {
 	t_trucs		*pt;
-	char		*line;
 	int			i;
 	int			j;
-	int			x;
+	int			count;
 
-	x = 0;
 	pt = *ptr;
-	get_next_line(1, &line);
-	ft_strdel(&line);
-	get_next_line(1, &line);
-	ft_strdel(&line);
-	while (x < pt->x_tab)
+	i = 0;
+	count = 0;
+	while (count == 0)
 	{
-		get_next_line(1, &line);
-		i = 4;
 		j = 0;
-		while (j < pt->y_tab)
+		while (j < pt->y_pcs && count == 0)
 		{
-			pt->tab[x][j] = line[i];
-			i++;
+			if (pt->pcs[i][j] == '*')
+				count++;
 			j++;
 		}
-		x++;
-	ft_strdel(&line);
+		if (count == 0)
+			pt->x_trd++;
+		i++;
 	}
 }
 
-void		recuppiecefree(t_trucs **ptr)
+void		trend(t_trucs **ptr)
 {
 	t_trucs		*pt;
-	char		*line;
 	int			i;
 	int			j;
-	int			x;
+	int			count;
 
-	x = 0;
 	pt = *ptr;
-	while (x < pt->x_pcs)
+	pt->x_trd = 0;
+	pt->y_trd = 0;
+	j = 0;
+	count = 0;
+	while (count == 0)
 	{
-		ft_strdel(&pt->pcs[x]);
-		x++;
+		i = 0;
+		while (i < pt->x_pcs)
+		{
+			if (pt->pcs[i][j] == '*')
+				count++;
+			i++;
+		}
+		if (count == 0)
+			pt->y_trd++;
+		j++;
 	}
-	free(pt->pcs);
+	trend_y(ptr);
 }

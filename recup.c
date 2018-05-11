@@ -6,7 +6,7 @@
 /*   By: gufortel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/09 21:53:52 by gufortel          #+#    #+#             */
-/*   Updated: 2018/05/09 22:22:37 by gufortel         ###   ########.fr       */
+/*   Updated: 2018/05/10 17:27:42 by gufortel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ void		recupperso(t_trucs **ptr)
 	get_next_line(1, &line);
 	nb = ft_atoi(line + 10);
 	pt->p = (nb == 1) ? 'o' : 'x';
+	ft_strdel(&line);
 }
 
 void		recupsize(t_trucs **ptr)
@@ -43,6 +44,7 @@ void		recupsize(t_trucs **ptr)
 		i++;
 	nb = ft_atoi(line + i + 1);
 	pt->y_tab = nb;
+	ft_strdel(&line);
 }
 
 void		recupmap(t_trucs **ptr)
@@ -57,6 +59,7 @@ void		recupmap(t_trucs **ptr)
 	pt = *ptr;
 	recupsize(ptr);
 	get_next_line(1, &line);
+	ft_strdel(&line);
 	pt->tab = (char**)ft_memalloc(sizeof(char*) * pt->x_tab);
 	while (x < pt->x_tab)
 	{
@@ -71,6 +74,7 @@ void		recupmap(t_trucs **ptr)
 			j++;
 		}
 		x++;
+		ft_strdel(&line);
 	}
 }
 
@@ -93,6 +97,7 @@ void		recupsizepcs(t_trucs **ptr)
 		i++;
 	nb = ft_atoi(line + i + 1);
 	pt->y_pcs = nb;
+	ft_strdel(&line);
 }
 
 void		recuppiece(t_trucs **ptr)
@@ -106,11 +111,11 @@ void		recuppiece(t_trucs **ptr)
 	x = 0;
 	pt = *ptr;
 	recupsizepcs(ptr);
-	pt->pcs = (char**)ft_memalloc(sizeof(char*) * pt->x_pcs);
+	pt->pcs = (char**)ft_memalloc(sizeof(char*) * pt->x_tab + 1);
 	while (x < pt->x_pcs)
 	{
 		get_next_line(1, &line);
-		pt->pcs[x] = (char*)ft_memalloc(pt->y_pcs + 2);
+		pt->pcs[x] = (char*)ft_memalloc(pt->y_tab + 2);
 		i = 0;
 		j = 0;
 		while (j < pt->y_pcs)
@@ -120,6 +125,7 @@ void		recuppiece(t_trucs **ptr)
 			j++;
 		}
 		x++;
+	ft_strdel(&line);
 	}
 }
 

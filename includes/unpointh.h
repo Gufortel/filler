@@ -6,7 +6,7 @@
 /*   By: gufortel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/09 17:50:46 by gufortel          #+#    #+#             */
-/*   Updated: 2018/05/09 22:15:24 by gufortel         ###   ########.fr       */
+/*   Updated: 2018/05/11 21:06:37 by gufortel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ typedef struct						s_trucs
 	char					**pcs;
 	int						x_pcs;
 	int						y_pcs;
+	int						x_trd;
+	int						y_trd;
 	int						x_tab;
 	int						y_tab;
 }									t_trucs;
@@ -41,10 +43,18 @@ void								recuppiece(t_trucs **ptr);
 */
 
 void								recupmapnext(t_trucs **ptr);
-void								recuppiecenext(t_trucs **ptr);
+void								recuppiecefree(t_trucs **ptr);
 
 /*
-** ...
+** trend.c
 */
+
+void								trend(t_trucs **ptr);
+
+/*
+** pose.c
+*/
+
+int									pose(int x, int y);
 
 #endif
