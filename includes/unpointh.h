@@ -6,7 +6,7 @@
 /*   By: gufortel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/09 17:50:46 by gufortel          #+#    #+#             */
-/*   Updated: 2018/05/14 17:07:19 by gufortel         ###   ########.fr       */
+/*   Updated: 2018/05/14 20:52:33 by gufortel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include "./../libft/includes/libft.h"
 # define TA_MERE_LE_CHIFFRE int
+# define P pt->pl
 
 typedef struct						s_trucs
 {
@@ -28,6 +29,9 @@ typedef struct						s_trucs
 	int						y_trd;
 	int						x_tab;
 	int						y_tab;
+	int						x_frt;
+	int						y_frt;
+	TA_MERE_LE_CHIFFRE		pl;
 }									t_trucs;
 
 /*
@@ -73,5 +77,13 @@ int									test_check(t_trucs **ptr, int x_pos,
 */
 
 void								thatsheside(t_trucs **ptr);
+void								seriously_guy(t_trucs **ptr);
+
+/*
+** start.c
+*/
+
+void								start(t_trucs **ptr);
+void								init(t_trucs **ptr);
 
 #endif

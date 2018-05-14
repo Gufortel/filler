@@ -5,8 +5,20 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: gufortel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/05/14 20:42:57 by gufortel          #+#    #+#             */
+/*   Updated: 2018/05/14 20:47:37 by gufortel         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   solver.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gufortel <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/13 16:57:49 by gufortel          #+#    #+#             */
-/*   Updated: 2018/05/14 17:10:28 by gufortel         ###   ########.fr       */
+/*   Updated: 2018/05/14 20:42:37 by gufortel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +31,7 @@ int			searchtp(t_trucs **ptr, int x, int y)
 
 	nb = 0;
 	pt = *ptr;
-	ft_printf("debut recursive\n");
+//	ft_printf("debut recursive\n");
 	if (x >= pt->x_tab || y >= pt->y_tab || x < 0 || y < 0)
 		return (2);
 	if (pt->tab[x][y] == pt->adv || pt->tab[x][y] == ft_toupper(pt->adv))
@@ -29,7 +41,7 @@ int			searchtp(t_trucs **ptr, int x, int y)
 	nb = searchtp(ptr, x - 1, y) + 1;
 	if (nb < searchtp(ptr, x, y - 1))
 		nb = searchtp(ptr, x, y - 1) + 1;
-	ft_printf("fin de recursive\n");
+//	ft_printf("fin de recursive\n");
 	return (nb);
 }
 
@@ -40,7 +52,7 @@ int			searchbt(t_trucs **ptr, int x, int y)
 
 	nb = 0;
 	pt = *ptr;
-	ft_printf("debut recursive\n");
+//	ft_printf("debut recursive\n");
 	if (x >= pt->x_tab || y >= pt->y_tab || x < 0 || y < 0)
 		return (2);
 	if (pt->tab[x][y] == pt->adv || pt->tab[x][y] == ft_toupper(pt->adv))
@@ -50,7 +62,7 @@ int			searchbt(t_trucs **ptr, int x, int y)
 	nb = searchbt(ptr, x + 1, y) + 1;
 	if (nb < searchbt(ptr, x, y + 1))
 		nb = searchbt(ptr, x, y + 1) + 1;
-	ft_printf("fin de recursive\n");
+//	ft_printf("fin de recursive\n");
 	return (nb);
 }
 
@@ -80,4 +92,25 @@ void		thatsheside(t_trucs **ptr)
 		}
 	}
 	return ;
+}
+
+void		seriously_guy(t_trucs **ptr)
+{
+	t_trucs *pt;
+	int x;
+	int y;
+
+	pt = *ptr;
+	x = pt->x_frt;
+	while (x < pt->x_tab && x >= 0)
+	{
+		y = pt->y_frt;
+		while (y < pt->y_tab && y >= 0)
+		{
+			if (pt->tab[x][y] == ft_toupper(pt->me))
+				test_check(ptr, x, y);
+			y = y + P;
+		}
+		x = x + P;
+	}
 }

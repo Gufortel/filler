@@ -6,7 +6,7 @@
 /*   By: gufortel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/11 15:50:45 by gufortel          #+#    #+#             */
-/*   Updated: 2018/05/14 16:55:53 by gufortel         ###   ########.fr       */
+/*   Updated: 2018/05/14 21:09:41 by gufortel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,20 +25,30 @@ int			check(t_trucs **ptr, int x, int y, int count)
 
 	pt = *ptr;
 	i = -1;
+	ft_printf("check debut x = %d, y = %d\n", x, y);
 	if (x < 0 || y < 0)
+	{
+		ft_printf("test check fin\n");
 		return (-1);
+	}
 	while (i++ < pt->x_pcs)
 	{
 		j = -1;
 		while (j++ < pt->y_pcs)
 		{
+			ft_printf("premier if\n");
 			if (pt->pcs[i][j] == '*' && pt->tab[x + i][y + j] == 'O')
 				count++;
+			ft_printf("deuxieme if\n");
 			if (pt->pcs[i][j] == '*'
 				&& (x + i > pt->x_tab || y + j > pt->y_tab))
+			{
+				ft_printf("test check fin\n");
 				return (-1);
+			}
 		}
 	}
+	ft_printf("test check fin\n");
 	if (count == 1)
 		return (pose(x, y));
 	return (-1);
