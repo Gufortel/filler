@@ -6,13 +6,19 @@
 /*   By: gufortel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/11 15:53:57 by gufortel          #+#    #+#             */
-/*   Updated: 2018/05/11 16:51:00 by gufortel         ###   ########.fr       */
+/*   Updated: 2018/05/14 17:08:30 by gufortel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./includes/unpointh.h"
 
-void	trend_y(t_trucs **ptr)
+/*
+** Fonction qui cree deux variable x_trd / y_trd ajouter au
+** variable de position permette de prendre la piece colle au bord
+** en haut a droite
+*/
+
+void		trend_y(t_trucs **ptr)
 {
 	t_trucs		*pt;
 	int			i;

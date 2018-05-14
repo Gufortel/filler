@@ -6,11 +6,16 @@
 /*   By: gufortel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/09 21:53:52 by gufortel          #+#    #+#             */
-/*   Updated: 2018/05/10 17:27:42 by gufortel         ###   ########.fr       */
+/*   Updated: 2018/05/14 17:11:19 by gufortel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./includes/unpointh.h"
+
+/*
+** Ses fonctions servent a recuperer les maps au piece tout au long
+** du programme, elles sont sans leaks et test.
+*/
 
 void		recupperso(t_trucs **ptr)
 {
@@ -21,7 +26,8 @@ void		recupperso(t_trucs **ptr)
 	pt = *ptr;
 	get_next_line(1, &line);
 	nb = ft_atoi(line + 10);
-	pt->p = (nb == 1) ? 'o' : 'x';
+	pt->me = (nb == 1) ? 'o' : 'x';
+	pt->adv = (nb == 1) ? 'x' : 'o';
 	ft_strdel(&line);
 }
 
@@ -55,25 +61,23 @@ void		recupmap(t_trucs **ptr)
 	int			j;
 	int			x;
 
-	x = 0;
+	x = -1;
 	pt = *ptr;
 	recupsize(ptr);
 	get_next_line(1, &line);
 	ft_strdel(&line);
 	pt->tab = (char**)ft_memalloc(sizeof(char*) * pt->x_tab);
-	while (x < pt->x_tab)
+	while (++x < pt->x_tab)
 	{
 		get_next_line(1, &line);
 		pt->tab[x] = (char*)ft_memalloc(pt->y_tab + 2);
 		i = 4;
-		j = 0;
-		while (j < pt->y_tab)
+		j = -1;
+		while (++j < pt->y_tab)
 		{
 			pt->tab[x][j] = line[i];
 			i++;
-			j++;
 		}
-		x++;
 		ft_strdel(&line);
 	}
 }
@@ -125,47 +129,6 @@ void		recuppiece(t_trucs **ptr)
 			j++;
 		}
 		x++;
-	ft_strdel(&line);
+		ft_strdel(&line);
 	}
 }
-
-/*int			main(int ac, char **av)
-{
-	t_trucs		*ptr;
-
-	ptr = (struct s_trucs*)ft_memalloc(sizeof(t_trucs));
-	ptr->tab = NULL;
-	ptr->pcs = NULL;
-	recupperso(&ptr);
-	recupmap(&ptr);
-	recuppiece(&ptr);
-	ft_printf("p = %c, xtab = %d, ytab = %d, xpcs = %d, ypcs = %d\n", ptr->p, ptr->x_tab, ptr->y_tab, ptr->x_pcs, ptr->y_pcs);
-	int i;
-	i = 0;
-	while (i < ptr->x_tab)
-	{
-		ft_printf("tab=%s\n", ptr->tab[i]);
-		i++;
-	}
-	i = 0;
-	while (i < ptr->x_pcs)
-	{
-		ft_printf("pcs=%s\n", ptr->pcs[i]);
-		i++;
-	}
-	recupmapnext(&ptr);
-	recuppiecenext(&ptr);
-	i = 0;
-	while (i < ptr->x_tab)
-	{
-		ft_printf("tab=%s\n", ptr->tab[i]);
-		i++;
-	}
-	i = 0;
-	while (i < ptr->x_pcs)
-	{
-		ft_printf("pcs=%s\n", ptr->pcs[i]);
-		i++;
-	}
-
-}*/

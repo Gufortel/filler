@@ -6,7 +6,7 @@
 /*   By: gufortel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/10 14:46:33 by gufortel          #+#    #+#             */
-/*   Updated: 2018/05/11 16:50:26 by gufortel         ###   ########.fr       */
+/*   Updated: 2018/05/13 18:31:51 by gufortel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,14 @@ int			main(int ac, char **av)
 	recupperso(&ptr);
 	recupmap(&ptr);
 	recuppiece(&ptr);
-	ft_printf("p = %c, xtab = %d, ytab = %d, xpcs = %d, ypcs = %d\n", ptr->p, ptr->x_tab, ptr->y_tab, ptr->x_pcs, ptr->y_pcs);
+	ft_printf("p = %c, xtab = %d, ytab = %d, xpcs = %d, ypcs = %d\n", ptr->me, ptr->x_tab, ptr->y_tab, ptr->x_pcs, ptr->y_pcs);
 	int i;
 
 	while (42)
 	{
 		i = 0;
 		trend(&ptr);
+		thatsheside(&ptr);
 		ft_printf("tendance = %d , %d\n", ptr->x_trd, ptr->y_trd);
 		while (i < ptr->x_tab)
 		{

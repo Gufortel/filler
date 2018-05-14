@@ -6,7 +6,7 @@
 /*   By: gufortel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/09 17:50:46 by gufortel          #+#    #+#             */
-/*   Updated: 2018/05/11 21:06:37 by gufortel         ###   ########.fr       */
+/*   Updated: 2018/05/14 17:07:19 by gufortel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,12 @@
 # define UNPOINTH_H
 
 # include "./../libft/includes/libft.h"
+# define TA_MERE_LE_CHIFFRE int
 
 typedef struct						s_trucs
 {
-	char					p;
+	char					me;
+	char					adv;
 	char					**tab;
 	char					**pcs;
 	int						x_pcs;
@@ -56,5 +58,20 @@ void								trend(t_trucs **ptr);
 */
 
 int									pose(int x, int y);
+
+/*
+** check.c
+*/
+
+int									check(t_trucs **ptr, int x, int y,
+									int count);
+int									test_check(t_trucs **ptr, int x_pos,
+									int y_pos);
+
+/*
+** solver.c
+*/
+
+void								thatsheside(t_trucs **ptr);
 
 #endif

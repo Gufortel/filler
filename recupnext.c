@@ -6,7 +6,7 @@
 /*   By: gufortel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/09 22:12:35 by gufortel          #+#    #+#             */
-/*   Updated: 2018/05/10 17:28:33 by gufortel         ###   ########.fr       */
+/*   Updated: 2018/05/14 17:11:30 by gufortel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,13 @@ void		recupmapnext(t_trucs **ptr)
 	int			j;
 	int			x;
 
-	x = 0;
+	x = -1;
 	pt = *ptr;
 	get_next_line(1, &line);
 	ft_strdel(&line);
 	get_next_line(1, &line);
 	ft_strdel(&line);
-	while (x < pt->x_tab)
+	while (++x < pt->x_tab)
 	{
 		get_next_line(1, &line);
 		i = 4;
@@ -37,8 +37,7 @@ void		recupmapnext(t_trucs **ptr)
 			i++;
 			j++;
 		}
-		x++;
-	ft_strdel(&line);
+		ft_strdel(&line);
 	}
 }
 
