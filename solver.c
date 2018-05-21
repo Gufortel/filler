@@ -5,25 +5,13 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: gufortel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/05/14 20:42:57 by gufortel          #+#    #+#             */
-/*   Updated: 2018/05/14 20:47:37 by gufortel         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   solver.c                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: gufortel <marvin@42.fr>                    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/13 16:57:49 by gufortel          #+#    #+#             */
-/*   Updated: 2018/05/14 20:42:37 by gufortel         ###   ########.fr       */
+/*   Updated: 2018/05/21 20:27:34 by gufortel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./includes/unpointh.h"
-
+/*
 int			searchtp(t_trucs **ptr, int x, int y)
 {
 	t_trucs						*pt;
@@ -78,7 +66,7 @@ void		thatsheside(t_trucs **ptr)
 	while (++nb < pt->x_tab + pt->y_tab)
 	{
 		i = -1;
-		ft_printf("boucle nb = %d\n", nb);
+//		ft_printf("boucle nb = %d\n", nb);
 		while (++i < pt->x_tab)
 		{
 			j = -1;
@@ -93,6 +81,7 @@ void		thatsheside(t_trucs **ptr)
 	}
 	return ;
 }
+*/
 
 void		seriously_guy(t_trucs **ptr)
 {
@@ -108,7 +97,10 @@ void		seriously_guy(t_trucs **ptr)
 		while (y < pt->y_tab && y >= 0)
 		{
 			if (pt->tab[x][y] == ft_toupper(pt->me))
-				test_check(ptr, x, y);
+			{
+				if (test_check(ptr, x, y) == 1)
+					return ;
+			}
 			y = y + P;
 		}
 		x = x + P;
