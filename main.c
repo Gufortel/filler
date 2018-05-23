@@ -6,11 +6,14 @@
 /*   By: gufortel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/10 14:46:33 by gufortel          #+#    #+#             */
-/*   Updated: 2018/05/21 18:16:36 by gufortel         ###   ########.fr       */
+/*   Updated: 2018/05/23 00:02:12 by gufortel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./includes/unpointh.h"
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
 
 int			main(int ac, char **av)
 {
@@ -28,25 +31,28 @@ int			main(int ac, char **av)
 		start(&ptr);
 //	ft_printf("p = %c, xtab = %d, ytab = %d, xpcs = %d, ypcs = %d ptr->x_frt = %d\n", ptr->me, ptr->x_tab, ptr->y_tab, ptr->x_pcs, ptr->y_pcs, ptr->x_frt);
 	int i;
-
+	int fd;
+	fd = open("./testvm", O_WRONLY | O_CREAT);
 	while (42)
 	{
 		i = 0;
 		trend(&ptr);
 	//	thatsheside(&ptr);
-		seriously_guy(&ptr);
 //		ft_printf("tendance = %d , %d\n", ptr->x_trd, ptr->y_trd);
 		while (i < ptr->x_tab)
 		{
-//			ft_printf("tab=%s\n", ptr->tab[i]);
+			write(1, ptr->tab[i], ft_strlen(ptr->tab[i]));
+			write(1, "\n", 1);
 			i++;
 		}
 		i = 0;
 		while (i < ptr->x_pcs)
 		{
-//			ft_printf("pcs=%s\n", ptr->pcs[i]);
+			write(1, ptr->pcs[i], ft_strlen(ptr->tab[i]));
+			write(1, "\n", 1);
 			i++;
 		}
+		seriously_guy(&ptr);
 		recupmapnext(&ptr);
 		recuppiecefree(&ptr);
 		recuppiece(&ptr);
