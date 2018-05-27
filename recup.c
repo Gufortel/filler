@@ -6,7 +6,7 @@
 /*   By: gufortel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/09 21:53:52 by gufortel          #+#    #+#             */
-/*   Updated: 2018/05/14 17:11:19 by gufortel         ###   ########.fr       */
+/*   Updated: 2018/05/26 21:37:47 by gufortel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,30 +17,34 @@
 ** du programme, elles sont sans leaks et test.
 */
 
-void		recupperso(t_trucs **ptr)
+void		recupperso(t_trucs **ptr, char *line)
 {
 	t_trucs		*pt;
-	char		*line;
 	int			nb;
 
 	pt = *ptr;
-	get_next_line(1, &line);
 	nb = ft_atoi(line + 10);
 	pt->me = (nb == 1) ? 'o' : 'x';
 	pt->adv = (nb == 1) ? 'x' : 'o';
 	ft_strdel(&line);
+	while (get_next_line(0, &line))
+	{
+		if (match(line, "*Plateau*") == 1)
+		{
+			recupmap(ptr, line);
+			return ;
+		}
+	}
 }
 
-void		recupsize(t_trucs **ptr)
+void		recupsize(t_trucs **ptr, char *line)
 {
 	t_trucs		*pt;
-	char		*line;
 	int			nb;
 	int			i;
 
 	pt = *ptr;
 	i = 0;
-	get_next_line(1, &line);
 	while ((line[i] >= 'a' && line[i] <= 'z')
 		|| (line[i] >= 'A' && line[i] <= 'z'))
 		i++;
@@ -53,23 +57,22 @@ void		recupsize(t_trucs **ptr)
 	ft_strdel(&line);
 }
 
-void		recupmap(t_trucs **ptr)
+void		recupmap(t_trucs **ptr, char *line)
 {
 	t_trucs		*pt;
-	char		*line;
 	int			i;
 	int			j;
 	int			x;
 
 	x = -1;
 	pt = *ptr;
-	recupsize(ptr);
-	get_next_line(1, &line);
+	recupsize(ptr, line);
+	get_next_line(0, &line);
 	ft_strdel(&line);
 	pt->tab = (char**)ft_memalloc(sizeof(char*) * pt->x_tab);
 	while (++x < pt->x_tab)
 	{
-		get_next_line(1, &line);
+		get_next_line(0, &line);
 		pt->tab[x] = (char*)ft_memalloc(pt->y_tab + 2);
 		i = 4;
 		j = -1;
@@ -80,6 +83,7 @@ void		recupmap(t_trucs **ptr)
 		}
 		ft_strdel(&line);
 	}
+	recuppiece(ptr);
 }
 
 void		recupsizepcs(t_trucs **ptr)
@@ -91,7 +95,7 @@ void		recupsizepcs(t_trucs **ptr)
 
 	pt = *ptr;
 	i = 0;
-	get_next_line(1, &line);
+	get_next_line(0, &line);
 	while ((line[i] >= 'a' && line[i] <= 'z')
 		|| (line[i] >= 'A' && line[i] <= 'z'))
 		i++;
@@ -118,7 +122,7 @@ void		recuppiece(t_trucs **ptr)
 	pt->pcs = (char**)ft_memalloc(sizeof(char*) * pt->x_tab + 1);
 	while (x < pt->x_pcs)
 	{
-		get_next_line(1, &line);
+		get_next_line(0, &line);
 		pt->pcs[x] = (char*)ft_memalloc(pt->y_tab + 2);
 		i = 0;
 		j = 0;

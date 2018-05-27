@@ -6,7 +6,7 @@
 /*   By: gufortel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/07 19:59:07 by gufortel          #+#    #+#             */
-/*   Updated: 2018/05/09 22:04:44 by gufortel         ###   ########.fr       */
+/*   Updated: 2018/05/26 16:04:41 by gufortel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,5 +98,6 @@ void			ft_lstadd(t_list **alst, t_list *new);
 void			ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list			*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 int				ft_printf(const char *format, ...);
+int				match(char *s1, char *s2);
 
 #endif

@@ -1,30 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   read.c                                             :+:      :+:    :+:   */
+/*   match.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gufortel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/05/23 00:02:46 by gufortel          #+#    #+#             */
-/*   Updated: 2018/05/26 21:36:04 by gufortel         ###   ########.fr       */
+/*   Created: 2018/05/26 15:09:42 by gufortel          #+#    #+#             */
+/*   Updated: 2018/05/26 15:09:55 by gufortel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <sys/types.h>
-#include <sys/stat.h>
-#include <fcntl.h>
-#include "./includes/unpointh.h"
-
-int		main(int ac, char **av)
+int	match(char *s1, char *s2)
 {
-	int fd;
-	char *str;
-	fd = open("/dev/ttys002", O_RDWR | O_CREAT);
-	while(42)
-	{
-		get_next_line(0, &str);
-		write(fd, str, ft_strlen(str));
-		write(fd, "\n", 1);
-//		write(1, "0 0\n",4);
-	}
+	if (*s1 != '\0' && *s2 == '*')
+		return (match(s1 + 1, s2) || match(s1, s2 + 1));
+	if (*s1 == '\0' && *s2 == '*')
+		return (match(s1, s2 + 1));
+	if (*s1 == *s2 && *s1 != '\0' && *s2 != '\0')
+		return (match(s1 + 1, s2 + 1));
+	if (*s1 == *s2 && *s1 == '\0' && *s2 == '\0')
+		return (1);
+	return (0);
 }

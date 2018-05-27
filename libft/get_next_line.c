@@ -6,7 +6,7 @@
 /*   By: gufortel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/21 15:10:45 by gufortel          #+#    #+#             */
-/*   Updated: 2018/05/21 11:22:36 by gufortel         ###   ########.fr       */
+/*   Updated: 2018/05/27 20:25:11 by gufortel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ char	*cpystr(char *ptr, char *str)
 		return (NULL);
 	ft_strcpy(tmp, ptr);
 	ft_strdel(&str);
-	if (!(str = (char*)ft_memalloc(100)))
+	if (!(str = (char*)ft_memalloc(120)))
 		return (NULL);
 	ft_strcpy(str, tmp);
 	ft_strdel(&tmp);
@@ -48,7 +48,7 @@ int		get_next_line(const int fd, char **line)
 	if (fd < 0 || read(fd, buf, 0) < 0)
 		return (-1);
 	if (!str[fd])
-		str[fd] = ft_memalloc(100);
+		str[fd] = ft_memalloc(120);
 	while (!(ft_strchr(str[fd], '\n')) && (ret = read(fd, buf, BUFF_SIZE)) > 0)
 	{
 		buf[ret] = '\0';

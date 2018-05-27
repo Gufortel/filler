@@ -6,7 +6,7 @@
 #    By: gufortel <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/10 00:01:50 by gufortel          #+#    #+#              #
-#    Updated: 2018/05/09 18:22:14 by gufortel         ###   ########.fr        #
+#    Updated: 2018/05/26 15:13:23 by gufortel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -106,10 +106,11 @@ SRC = ft_atoi.c\
 	  ft_val_wchar.c\
 	  ft_strupper.c\
 	  get_next_line.c\
+	  match.c\
 
 OBJ = $(SRC:.c=.o)
 
-$(NAME):
+$(NAME): $(SRC)
 	@gcc -Wall -Wextra -Werror -c $(SRC)
 	@ar rc $(NAME) $(OBJ)
 	@ranlib $(NAME)
@@ -124,4 +125,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: clean fclean all 
+.PHONY: clean fclean all re 

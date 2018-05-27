@@ -6,7 +6,7 @@
 /*   By: gufortel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/09 17:50:46 by gufortel          #+#    #+#             */
-/*   Updated: 2018/05/14 20:52:33 by gufortel         ###   ########.fr       */
+/*   Updated: 2018/05/27 20:24:28 by gufortel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,9 @@ typedef struct						s_trucs
 ** fichier recup.c
 */
 
-void								recupperso(t_trucs **ptr);
-void								recupsize(t_trucs **ptr);
-void								recupmap(t_trucs **ptr);
+void								recupperso(t_trucs **ptr, char *line);
+void								recupsize(t_trucs **ptr, char *line);
+void								recupmap(t_trucs **ptr, char *line);
 void								recupsizepcs(t_trucs **ptr);
 void								recuppiece(t_trucs **ptr);
 
@@ -83,7 +83,13 @@ void								seriously_guy(t_trucs **ptr);
 ** start.c
 */
 
-void								start(t_trucs **ptr);
-void								init(t_trucs **ptr);
+void								start(t_trucs *pt, char x);
+void								init(t_trucs *pt);
+
+/*
+** trait.c
+*/
+
+int									trait(t_trucs **ptr);
 
 #endif
