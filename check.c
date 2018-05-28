@@ -6,7 +6,7 @@
 /*   By: gufortel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/11 15:50:45 by gufortel          #+#    #+#             */
-/*   Updated: 2018/05/27 19:58:59 by gufortel         ###   ########.fr       */
+/*   Updated: 2018/05/28 15:28:38 by gufortel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,36 +25,26 @@ int			check(t_trucs **ptr, int x, int y, int count)
 
 	pt = *ptr;
 	i = -1;
-//	ft_printf("check debut x = %d, y = %d\n", x, y);
-/*	if (x < 0 || y < 0)
-	{
-//		ft_printf("test check fin\n");
-		return (-1);
-	}
-*/	while (++i < pt->x_pcs)
+	while (++i < pt->x_pcs)
 	{
 		j = -1;
 		while (++j < pt->y_pcs)
 		{
-//			ft_printf("premier if\n");
-//			ft_printf(" j = %d, i = %d\npt->pcs = %c, pt->tab = %c\n", j , i, pt->pcs[i][j], pt->tab[x + i][y + j]);
-			if (pt->pcs[i][j] == '*' && (x + i < 0 || y + j < 0))
-					return (-1);
+			if ((pt->pcs[i][j] == '*' &&
+				(x + i < 0 || y + j < 0)))
+				return (-1);
 			if (pt->pcs[i][j] == '*'
 				&& ((x + i > pt->x_tab - 1 || y + j > pt->y_tab - 1) ||
 				pt->tab[x + i][y + j] == ft_toupper(pt->adv) ||
 				pt->tab[x + i][y + j] == pt->adv))
 			{
-//				ft_printf("test check fin\n");
 				return (-1);
 			}
 			if ((pt->pcs[i][j] == '*' && (
 				pt->tab[x + i][y + j] == ft_toupper(pt->me))))
 				count++;
-//			ft_printf("deuxieme if\n");
 		}
 	}
-//	ft_printf("test check fin\n");
 	if (count == 1)
 		return (pose(x, y));
 	return (-1);
@@ -72,7 +62,6 @@ int			test_check(t_trucs **ptr, int x_pos, int y_pos)
 
 	pt = *ptr;
 	i = x_pos - (pt->x_pcs);
-//	ft_printf("testcheck debut\n");
 	while (i < x_pos + (pt->x_pcs))
 	{
 		j = y_pos - (pt->y_pcs);
@@ -84,6 +73,5 @@ int			test_check(t_trucs **ptr, int x_pos, int y_pos)
 		}
 		i++;
 	}
-//	ft_printf("testckeck fin\n");
 	return (-1);
 }
