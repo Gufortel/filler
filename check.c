@@ -6,7 +6,7 @@
 /*   By: gufortel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/11 15:50:45 by gufortel          #+#    #+#             */
-/*   Updated: 2018/05/28 15:28:38 by gufortel         ###   ########.fr       */
+/*   Updated: 2018/05/28 16:00:50 by gufortel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,18 +30,14 @@ int			check(t_trucs **ptr, int x, int y, int count)
 		j = -1;
 		while (++j < pt->y_pcs)
 		{
-			if ((pt->pcs[i][j] == '*' &&
-				(x + i < 0 || y + j < 0)))
+			if ((pt->pcs[i][j] == '*' && (x + i < 0 || y + j < 0)))
 				return (-1);
-			if (pt->pcs[i][j] == '*'
-				&& ((x + i > pt->x_tab - 1 || y + j > pt->y_tab - 1) ||
-				pt->tab[x + i][y + j] == ft_toupper(pt->adv) ||
-				pt->tab[x + i][y + j] == pt->adv))
-			{
+			if (pt->pcs[i][j] == '*' && ((x + i >= pt->x_tab ||
+				y + j >= pt->y_tab) || pt->tab[x + i][y + j] ==
+				ft_toupper(pt->adv) || pt->tab[x + i][y + j] == pt->adv))
 				return (-1);
-			}
-			if ((pt->pcs[i][j] == '*' && (
-				pt->tab[x + i][y + j] == ft_toupper(pt->me))))
+			if ((pt->pcs[i][j] == '*' && (pt->tab[x + i][y + j] ==
+				ft_toupper(pt->me) || pt->tab[x + i][y + j] == pt->me)))
 				count++;
 		}
 	}

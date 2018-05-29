@@ -6,7 +6,7 @@
 /*   By: gufortel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/10 14:46:33 by gufortel          #+#    #+#             */
-/*   Updated: 2018/05/28 15:33:22 by gufortel         ###   ########.fr       */
+/*   Updated: 2018/05/30 00:51:04 by gufortel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,8 +54,6 @@ int			main(int ac, char **av)
 	ptr = (struct s_trucs*)ft_memalloc(sizeof(t_trucs));
 	ptr->tab = NULL;
 	ptr->pcs = NULL;
-	ptr->x_frt = -1;
-	ptr->y_frt = 0;
 	firstrecup(&ptr);
 	int i;
 	int fd;
@@ -64,6 +62,7 @@ int			main(int ac, char **av)
 	{
 		i = 0;
 	//	trend(&ptr);
+// 	   /*
 		dprintf(fd, "x = %d, y = %d, P = %d, xpcs = %d, ypcs = %d, joeur = %c\n", ptr->x_frt,
 		ptr->y_frt, ptr->pl, ptr->x_pcs, ptr->y_pcs, ptr->me);
 		write(fd, "\nmap=\n", 6);
@@ -81,9 +80,9 @@ int			main(int ac, char **av)
 			write(fd, "\n", 1);
 			i++;
 		}
+//		*/
 		start(ptr, ptr->adv);
-		if (trait(&ptr) == 1)
-			seriously_guy(&ptr);
+		seriously_guy(&ptr);
 		lastrecup(&ptr);
 	}
 }
