@@ -6,7 +6,7 @@
 /*   By: gufortel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/10 14:46:33 by gufortel          #+#    #+#             */
-/*   Updated: 2018/05/30 00:51:04 by gufortel         ###   ########.fr       */
+/*   Updated: 2018/06/02 00:31:19 by gufortel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void		firstrecup(t_trucs **ptr)
 	}
 }
 
-int			main(int ac, char **av)
+int			main(void)
 {
 	t_trucs		*ptr;
 
@@ -58,13 +58,16 @@ int			main(int ac, char **av)
 	int i;
 	int fd;
 	fd = open("/dev/ttys003", O_WRONLY);
+	start(ptr, ptr->adv);
 	while (42)
 	{
 		i = 0;
 	//	trend(&ptr);
+		create_tab(ptr);
 // 	   /*
-		dprintf(fd, "x = %d, y = %d, P = %d, xpcs = %d, ypcs = %d, joeur = %c\n", ptr->x_frt,
-		ptr->y_frt, ptr->pl, ptr->x_pcs, ptr->y_pcs, ptr->me);
+		ptr->fd = fd;
+		dprintf(fd, "x = %d, y = %d, P = %d, xpcs = %d, ypcs = %d, joeur = %c, adv = %c\n",
+		ptr->x_frt, ptr->y_frt, ptr->pl, ptr->x_pcs, ptr->y_pcs, ptr->me, ptr->adv);
 		write(fd, "\nmap=\n", 6);
 		while (i < ptr->x_tab)
 		{
@@ -81,8 +84,8 @@ int			main(int ac, char **av)
 			i++;
 		}
 //		*/
-		start(ptr, ptr->adv);
 		seriously_guy(&ptr);
 		lastrecup(&ptr);
+		free_map(&ptr);
 	}
 }

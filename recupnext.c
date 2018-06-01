@@ -6,7 +6,7 @@
 /*   By: gufortel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/09 22:12:35 by gufortel          #+#    #+#             */
-/*   Updated: 2018/05/26 21:38:04 by gufortel         ###   ########.fr       */
+/*   Updated: 2018/06/02 00:31:04 by gufortel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,6 @@ void		recupmapnext(t_trucs **ptr)
 void		recuppiecefree(t_trucs **ptr)
 {
 	t_trucs		*pt;
-	char		*line;
-	int			i;
-	int			j;
 	int			x;
 
 	x = 0;

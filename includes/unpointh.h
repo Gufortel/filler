@@ -6,7 +6,7 @@
 /*   By: gufortel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/09 17:50:46 by gufortel          #+#    #+#             */
-/*   Updated: 2018/05/27 20:24:28 by gufortel         ###   ########.fr       */
+/*   Updated: 2018/06/02 00:21:49 by gufortel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,24 @@
 # include "./../libft/includes/libft.h"
 # define TA_MERE_LE_CHIFFRE int
 # define P pt->pl
+# define PTAB pt->tab
+# define PMAP pt->map
 
 typedef struct						s_trucs
 {
 	char					me;
 	char					adv;
 	char					**tab;
+	int						**map;
 	char					**pcs;
+	int						best;
+	int						fd;
+	int						b_pos;
+	int						b_pcs;
+	int						b_pos_x;
+	int						b_pos_y;
+	int						b_pcs_x;
+	int						b_pcs_y;
 	int						x_pcs;
 	int						y_pcs;
 	int						x_trd;
@@ -91,5 +102,19 @@ void								init(t_trucs *pt);
 */
 
 int									trait(t_trucs **ptr);
+
+/*
+** solver1.c
+*/
+
+void								create_tab(t_trucs *pt);
+void								create_obstacle(t_trucs *pt);
+
+/*
+** check_best.c
+*/
+
+int									son_of_a_bitch(t_trucs **ptr);
+void								free_map(t_trucs **ptr);
 
 #endif
