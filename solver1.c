@@ -6,7 +6,7 @@
 /*   By: gufortel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/30 21:30:36 by gufortel          #+#    #+#             */
-/*   Updated: 2018/06/02 00:27:27 by gufortel         ###   ########.fr       */
+/*   Updated: 2018/06/03 19:09:39 by gufortel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ void		create_obstacle(t_trucs *pt)
 	while (++i < pt->x_tab)
 	{
 		j = -1;
-		while (++j < pt->y_tab)	
+		while (++j < pt->y_tab)
 		{
 			if (PTAB[i][j] == ft_toupper(pt->adv) || PTAB[i][j] == pt->adv)
 				pt->map[i][j] = -1;
@@ -103,7 +103,7 @@ void		create_obstacle(t_trucs *pt)
 
 void		create_tab(t_trucs *pt)
 {
-	int		**tab;
+	int			**tab;
 	int			i;
 
 	i = 0;

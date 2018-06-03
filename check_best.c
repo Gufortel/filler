@@ -6,7 +6,7 @@
 /*   By: gufortel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/01 22:55:26 by gufortel          #+#    #+#             */
-/*   Updated: 2018/06/02 00:29:40 by gufortel         ###   ########.fr       */
+/*   Updated: 2018/06/03 19:09:00 by gufortel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int			check_best(t_trucs *pt, int x, int y)
 		{
 			if (i + x >= 0 && i + x < pt->x_tab &&
 				j + y >= 0 && j + y < pt->y_tab)
-			count = count + PMAP[i + x][j + y];
+				count = count + PMAP[i + x][j + y];
 		}
 	}
 	if (count < pt->b_pcs)
@@ -98,11 +98,10 @@ int			test_check_pcs(t_trucs **ptr, int x_pos, int y_pos)
 	return (-1);
 }
 
-
 void		free_map(t_trucs **ptr)
 {
-	t_trucs *pt;
-	int	i;
+	t_trucs		*pt;
+	int			i;
 
 	i = -1;
 	pt = *ptr;

@@ -6,7 +6,7 @@
 /*   By: gufortel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/09 17:50:46 by gufortel          #+#    #+#             */
-/*   Updated: 2018/06/02 00:21:49 by gufortel         ###   ########.fr       */
+/*   Updated: 2018/06/03 19:53:06 by gufortel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,18 +26,18 @@ typedef struct						s_trucs
 	char					**tab;
 	int						**map;
 	char					**pcs;
-	int						best;
+//	int						best;
 	int						fd;
-	int						b_pos;
+//	int						b_pos;
 	int						b_pcs;
-	int						b_pos_x;
-	int						b_pos_y;
+//	int						b_pos_x;
+//	int						b_pos_y;
 	int						b_pcs_x;
 	int						b_pcs_y;
 	int						x_pcs;
 	int						y_pcs;
-	int						x_trd;
-	int						y_trd;
+//	int						x_trd;
+//	int						y_trd;
 	int						x_tab;
 	int						y_tab;
 	int						x_frt;
@@ -87,7 +87,6 @@ int									test_check(t_trucs **ptr, int x_pos,
 ** solver.c
 */
 
-void								thatsheside(t_trucs **ptr);
 void								seriously_guy(t_trucs **ptr);
 
 /*

@@ -6,7 +6,7 @@
 #    By: gufortel <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/03/30 17:14:20 by gufortel          #+#    #+#              #
-#    Updated: 2018/06/01 23:19:48 by gufortel         ###   ########.fr        #
+#    Updated: 2018/06/03 19:53:38 by gufortel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,9 +20,8 @@ SRC = check.c\
 	  recupnext.c\
 	  solver.c\
 	  solver1.c\
-	  start.c\
 	  trait.c\
-	  trend.c\
+#	  trend.c\
 
 OBJ = $(SRC:.c=.o)
 
