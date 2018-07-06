@@ -6,7 +6,7 @@
 /*   By: gufortel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/09 21:53:52 by gufortel          #+#    #+#             */
-/*   Updated: 2018/06/02 00:30:55 by gufortel         ###   ########.fr       */
+/*   Updated: 2018/06/23 01:37:38 by gufortel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void		recupsize(t_trucs **ptr, char *line)
 	pt = *ptr;
 	i = 0;
 	while ((line[i] >= 'a' && line[i] <= 'z')
-		|| (line[i] >= 'A' && line[i] <= 'z'))
+			|| (line[i] >= 'A' && line[i] <= 'z'))
 		i++;
 	nb = ft_atoi(line + i);
 	pt->x_tab = nb;
@@ -77,10 +77,7 @@ void		recupmap(t_trucs **ptr, char *line)
 		i = 4;
 		j = -1;
 		while (++j < pt->y_tab)
-		{
-			pt->tab[x][j] = line[i];
-			i++;
-		}
+			pt->tab[x][j] = line[i++];
 		ft_strdel(&line);
 	}
 	recuppiece(ptr);
@@ -97,7 +94,7 @@ void		recupsizepcs(t_trucs **ptr)
 	i = 0;
 	get_next_line(0, &line);
 	while ((line[i] >= 'a' && line[i] <= 'z')
-		|| (line[i] >= 'A' && line[i] <= 'z'))
+			|| (line[i] >= 'A' && line[i] <= 'z'))
 		i++;
 	nb = ft_atoi(line + i);
 	pt->x_pcs = nb;

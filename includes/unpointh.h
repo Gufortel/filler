@@ -6,7 +6,7 @@
 /*   By: gufortel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/09 17:50:46 by gufortel          #+#    #+#             */
-/*   Updated: 2018/06/03 19:53:06 by gufortel         ###   ########.fr       */
+/*   Updated: 2018/06/06 00:04:35 by gufortel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 
 # include "./../libft/includes/libft.h"
 # define TA_MERE_LE_CHIFFRE int
-# define P pt->pl
 # define PTAB pt->tab
 # define PMAP pt->map
+int		FD;
 
 typedef struct						s_trucs
 {
@@ -26,23 +26,17 @@ typedef struct						s_trucs
 	char					**tab;
 	int						**map;
 	char					**pcs;
-//	int						best;
 	int						fd;
-//	int						b_pos;
 	int						b_pcs;
-//	int						b_pos_x;
-//	int						b_pos_y;
 	int						b_pcs_x;
 	int						b_pcs_y;
 	int						x_pcs;
 	int						y_pcs;
-//	int						x_trd;
-//	int						y_trd;
 	int						x_tab;
 	int						y_tab;
-	int						x_frt;
-	int						y_frt;
-	TA_MERE_LE_CHIFFRE		pl;
+	int						x;
+	int						y;
+	int						first;
 }									t_trucs;
 
 /*
@@ -90,19 +84,6 @@ int									test_check(t_trucs **ptr, int x_pos,
 void								seriously_guy(t_trucs **ptr);
 
 /*
-** start.c
-*/
-
-void								start(t_trucs *pt, char x);
-void								init(t_trucs *pt);
-
-/*
-** trait.c
-*/
-
-int									trait(t_trucs **ptr);
-
-/*
 ** solver1.c
 */
 
@@ -116,4 +97,10 @@ void								create_obstacle(t_trucs *pt);
 int									son_of_a_bitch(t_trucs **ptr);
 void								free_map(t_trucs **ptr);
 
+/*
+** same.c
+*/
+
+int									same(t_trucs *pt, int i);
+void								cpytab(t_trucs *pt);
 #endif

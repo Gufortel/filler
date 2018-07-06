@@ -6,7 +6,7 @@
 /*   By: gufortel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/11 15:52:21 by gufortel          #+#    #+#             */
-/*   Updated: 2018/05/14 16:54:07 by gufortel         ###   ########.fr       */
+/*   Updated: 2018/06/24 16:50:08 by gufortel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,9 @@
 
 int			pose(int x, int y)
 {
-	ft_printf("%d %d\n", x, y);
+	ft_putnbr(x);
+	ft_putchar(' ');
+	ft_putnbr(y);
+	ft_putchar('\n');
 	return (1);
 }

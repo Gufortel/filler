@@ -6,14 +6,13 @@
 #    By: gufortel <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/03/30 17:14:20 by gufortel          #+#    #+#              #
-#    Updated: 2018/06/03 19:53:38 by gufortel         ###   ########.fr        #
+#    Updated: 2018/06/05 22:27:55 by gufortel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = gufortel.filler
 
-SRC = check.c\
-	  check_best.c\
+SRC = check_best.c\
 	  main.c\
 	  pose.c\
 	  recup.c\
@@ -21,7 +20,6 @@ SRC = check.c\
 	  solver.c\
 	  solver1.c\
 	  trait.c\
-#	  trend.c\
 
 OBJ = $(SRC:.c=.o)
 
